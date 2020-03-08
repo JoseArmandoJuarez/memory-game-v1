@@ -1,0 +1,537 @@
+html, body { 
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+h1{
+    text-align: center;
+    font-size: 8em;
+    margin-bottom: 50px;
+    font-family: 'Boogaloo', cursive;
+}
+
+h2{
+    text-align: center;
+    font-size: 3em;
+}
+
+/* === Navigation === */
+header{
+    background-color:rgb(38, 38, 38);
+    padding: 20px 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/*logo*/
+.logo-placement{
+    flex: 25%;
+    height: 65px;
+}
+
+/*logo image*/
+#logo{
+    display: block;
+    padding-top: 10px;
+    margin-left: 25%;
+    width: 50px;
+    text-align: center;
+}
+
+/*burger*/
+.burger-box{
+    display: none;
+}
+
+/*navigation*/
+.navigation{
+    flex: 75%;
+    height: 65px;
+}
+
+.menu-links{
+    height: inherit;
+    margin: auto;
+    padding-right: 60px;
+    text-align: center;
+}
+
+.list-options{
+    text-align: right;
+    margin: 0px;
+    padding: 0px;
+    height: 65px;
+}
+
+.option{
+    position: relative;
+    display: inline-block;
+    padding-top: 10px;
+    margin: 20px 30px;
+}
+
+.option-name{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1em;
+}
+
+.option-name:hover{
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.option-name::before{
+    content: '';
+    display: block;
+    height: 5px;
+    width: 100%;
+    background-color: rgb(197, 197, 197);
+
+    position: absolute;
+    top:0;
+    width: 0%;
+
+    transition: all ease-in-out 200ms;
+}
+
+.option-name:hover::before{
+    width: 100%;
+}
+
+/* === game-title === */
+.game-title{
+    max-width: 100%;
+    text-align: center;
+}
+
+/* === Styles for the Score Panel === */
+.score-panel {
+    flex: 100%;
+    width: 45%;
+    height: 70px;
+    color: white;
+    background-color: #58595a;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.stars {
+    margin: auto;
+    padding: 0;
+    font-size: 2em;
+    color: rgb(255, 255, 0);
+}
+
+.stars li {
+    list-style: none;
+    display: inline-block;
+}
+
+.moves,
+.time,
+.restart{
+    margin: auto;
+    font-size: 1.3em;
+}
+
+/* === GAME BOARD ===*/
+.board-game{
+    display: flex;
+    flex-wrap: wrap;
+    width: 45%;
+    height: auto;
+    margin: auto;
+    border-radius: 3px;
+    justify-content: space-around;
+    background-color: rgb(80, 80, 80);
+    perspective: 600px;
+}
+
+/* displaying correct or uncorrect */
+#uncorrect,
+#correct{
+    position: absolute;
+    z-index: 1;
+    padding: 30%;
+    width: 320px;
+    display: none;
+}
+
+/*The credits for the flipping animation go to: 
+ https://3dtransforms.desandro.com/card-flip */
+
+.mem-card{
+    position: relative;
+    flex: 25%;
+    width: 50%;
+    height: 150px;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+}
+
+.card-face{
+    position: absolute;
+    width: 75%;
+    height: 90%;
+    margin-top: 5%;
+    margin-left: 12.5%;
+    border-radius: 3px;
+    background-color: rgb(120, 247, 247);
+    backface-visibility: hidden;
+}
+
+.image{
+    transform: rotateY( 180deg );
+}
+
+.mem-card.flip{
+    transform: rotateY(180deg);
+}
+
+.won-game{
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+    display: none;
+}
+
+/* === Score Board  === */
+#star-point,
+#final-moves,
+#final-time,
+#final-score
+{
+    font-size: 1.5em;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input{
+    margin-bottom: 1rem;
+    width: 20rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    border: solid 2px rgb(70, 65, 65);
+}
+
+input::placeholder{
+    color: #aaa;
+}
+
+.btn-save[disabled]:hover{
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+.btn-save{
+    width: 100px;
+    height: 40px;
+    font-size: .8em;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    border: solid 2px rgb(104, 104, 104);
+}
+
+.play-again{
+    width: 100px;
+    height: 40px;
+    font-size: .8em;
+    font-weight: bold;
+    outline: none;
+    cursor: pointer;
+    color: black;
+    background-color: rgb(120, 247, 247);
+    border: solid 2px rgb(104, 104, 104);
+}
+
+#leader-board{
+    font-family: 'Exo', sans-serif;
+    text-decoration: underline;
+    font-weight: 400;
+}
+
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: auto;
+    border: solid 2px #ddd;
+    border: hidden;
+}
+
+.player-position{
+    
+    background-color: rgb(14, 211, 218);
+    color: white;
+}
+
+tbody tr:nth-of-type(1){
+    color: #ff00cc;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+tbody tr:nth-of-type(2){
+    color: #ccff00;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+tbody tr:nth-of-type(3){
+    color: #00ccff;
+    font-weight: 700;
+    font-size: 1.2em;
+}
+
+tbody tr{
+    color: white;
+}
+
+tr, td {
+    font-size: 1.2em;
+    font-weight: 700;
+    background-color: rgb(56, 56, 56);
+    padding: 8px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    border-top: 2px solid #ddd;
+}
+
+
+.github-btn{
+    text-align: center;
+    padding-top: 80px;
+}
+
+.btn{
+    width: 150px;
+    height: 70px;
+    background-color: white;
+    border: 1px solid rgb(38, 38, 38);
+    outline: none;
+    font-size: medium;
+    font-weight: 800;
+}
+
+.btn:hover{
+    color: white;
+    background-color: rgb(38, 38, 38);
+}
+
+footer{
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-color:rgb(38, 38, 38);
+    padding: 60px 0px;
+    margin-top: 90px;
+}
+
+.footer-content{
+    flex: 100%;
+    text-align: center;
+    color: white;
+}
+
+.icons{
+    font-size: 36px;
+    border: 2px solid white;
+    border-radius: 10%;
+    padding: 6px;
+    margin: 3px;
+    cursor: pointer;
+}
+
+.icons:hover{
+    color: black;
+    background-color: white;
+}
+
+.links{
+    color: white;
+    text-decoration: none;
+}
+
+
+
+
+/*==========Mobile==========*/
+@media only screen and (min-width:360px) and (max-width:640px){
+    /*===Header Content===*/
+    .logo-placement{
+        flex: 50%;
+    }
+
+    .burger-box{
+        flex: 50%;
+        display: block;
+    }
+
+    .navigation{
+        flex: 100%;
+        height: 200px;
+        margin-top: 10px;
+        border-top: 1px solid white;
+        display: none;
+    }
+
+    .menu-links{
+        width: 100%;
+        padding: 0px;
+    }
+
+    .list-options{
+        width: 100%;
+        height: inherit;
+        text-align: center;
+    }
+
+    .option{
+        width: 50%;
+    }
+
+    .icon {
+        color: white;
+        display: block;
+        font-size: 30px;
+        padding: 14px 25px;
+        text-align: right;
+    }
+    
+    h1{ 
+        font-size: 4em;
+    }
+
+    /*game-options*/
+    .btn{
+        width: 100px;
+        height: 50px;
+        font-size: .8rem;
+    }
+
+    /* Styles for the Score Panel*/    
+    .score-panel {
+        width: 90%;
+        height: 50px;
+        margin-top: 20px;
+    }
+    
+    .stars {
+        font-size: 1em;
+    }
+    
+    .moves,
+    .time,
+    .restart{
+        font-size: 1em;
+    }
+
+    /*===GAME Board===*/
+    .board-game{
+        width: 90%;
+    }
+    
+    .mem-card{
+        height: 120px;
+    }
+    
+    .front,
+    .back{
+        width: 90%;
+        height: 90%;
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+
+    footer{
+        padding: 20px 0px;
+    }
+}
+
+
+/*==========ipad==========*/
+@media only screen and (min-width:768px) and (max-width:1024px){
+
+    h1{ 
+        font-size: 6em; 
+    }
+
+    .logo-placement{
+        flex: 25%;
+    }
+
+    .menu-links{
+        width: 75%;
+        padding-right: 10px;
+        margin-right: 0px;   
+    }
+
+    .list-options{
+        width: 100%;
+        padding: 0px;
+        margin: auto;
+        height: inherit;
+        text-align: right;
+    }
+      
+    .icon {
+        color: white;
+        display: block;
+        font-size: 30px;
+        padding: 14px 25px;
+        text-align: right;
+    }
+    
+    /*Styles for the Score Panel*/
+    .score-panel {
+        width: 75%;
+        height: 50px;
+    }
+    
+    .moves,
+    .time,
+    .restart{
+        font-size: 1em;
+    }
+
+    /*===GAME Board===*/
+    .board-game{
+        width: 75%;
+    }
+    
+    .mem-card{
+        height: 200px;
+    }
+    
+    .front,
+    .back{
+        width: 90%;
+        height: 90%;
+        margin-top: 5%;
+        margin-left: 5%;
+    }
+
+    footer{
+        padding: 20px 0px;
+    }
+
+}

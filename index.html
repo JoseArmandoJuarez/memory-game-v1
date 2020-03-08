@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Jose Juarez - Memory Game</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Exo&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+    <!--HEADER-->
+    <header id="home">
+        <div class="logo-placement">
+            <img id="logo" src="img/logo.png" alt="logo">
+        </div>
+
+        <div class="burger-box" onclick="menu();">
+            <a class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+        <!-- Menu -->
+        <div class="navigation">
+            <nav class="menu-links">
+                <ul class="list-options">
+                    <li class="option">
+                        <a class="option-name" href="#home">Home</a>
+                    </li>
+                    <li class="option">
+                        <a class="option-name" href="#about">About</a>
+                    </li>
+                    <li class="option">
+                        <a class="option-name" href="#portfolio">Portfolio</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!--Introduction-->
+    <div class="game-title">
+        <h1>Memory Game</h1>
+    </div>
+
+    <!-- Score Panel -->
+    <section class="score-panel">
+        <!-- stars -->
+        <ul class="stars">
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+            <li><i class="fa fa-star"></i></li>
+        </ul>
+        <!-- amount of moves taken -->
+        <div class="moves">
+            <p id="points">Moves: 0</p>
+        </div>
+
+        <!-- time spend -->
+        <div class="time">
+            <p id="time">00min : 00sec</p>
+        </div>
+        <!-- restart game -->
+        <div class="restart">
+            <i class="fa fa-repeat" onClick=" drawScoreBoard(true);"></i>
+        </div>
+    </section>
+
+    <!-- Game Board -->
+    <section class="board-game show-game">
+        <!-- Correct or Uncorrect-->
+        <img id="uncorrect" src="img/oops.png" alt="oops" />
+        <img id="correct" src="img/nice.png" alt="nice" />
+
+        <div class="mem-card" data-image="a">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="a">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="b">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="b">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="c">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="c">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="d">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="d">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="e">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="e">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="f">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="f">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="g">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="g">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="h">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+
+        <div class="mem-card" data-image="h">
+            <img class="card-face image" src="" alt="card-image" />
+            <img class="card-face unknown" src="img/question-mark.png" alt="question-mark" />
+        </div>
+    </section>
+
+    <!-- Score board -->
+    <section class="won-game">
+        <h2>Congratulations! You Finished!</h2>
+        <p id="star-point">Star(s): 0/3</p>
+        <p id="final-moves">Moves: 0</p>
+        <p id="final-time">Time: 00 min:00 sec</p>
+        <p id="final-score">Final Score: 0</p>
+        <form>
+            <input type="text" name="username" id="username" placeholder="username" autocomplete="off">
+            <button type="button" class="btn-save" id="saveScoreBtn" onClick="saveHighScore()" disabled>Save
+                Score</button>
+        </form>
+        <br />
+        <button class="play-again" onClick="init()">Play Again!</button>
+    </section>
+
+    <!-- Leader Board -->
+    <section>
+        <h2 id="leader-board">Top 10 Players</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <td class="player-position">RANKING</td>
+                    <td class="player-position">PLAYER</td>
+                    <td class="player-position">SCORE</td>
+                </tr>
+            </thead>
+            <tbody id="highScoreList">
+            </tbody>
+        </table>
+
+    </section>
+
+    <!-- Github button -->
+    <div class="github-btn">
+        <button class="btn">Github</button>
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <div class="footer-content">
+            <h4>&copy; Jose Juarez</h4>
+            <p><a class="links" href="mailto:josejuarez.ca@gmail.com">Email me</a></p>
+            <a class="links" href="https://www.linkedin.com/in/jose-armando-juarez-7310a5175/" target="_blank">
+                <i class="icons fa fa-linkedin"></i>
+            </a>
+            <a class="links" href="https://github.com/JoseArmandoJuarez/" target="_blank">
+                <i class="icons fa fa-github"></i>
+            </a>
+            <a class="links" href="https://twitter.com/jo5ejuarez" target="_blank">
+                <i class="icons fa fa-twitter"></i>
+            </a>
+            <a class="links" href="https://www.instagram.com/eljosejuarez/" target="_blank">
+                <i class="icons fa fa-instagram"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
